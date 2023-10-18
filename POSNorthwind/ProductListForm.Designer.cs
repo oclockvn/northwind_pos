@@ -37,6 +37,7 @@
             columnHeader2 = new ColumnHeader();
             columnHeader3 = new ColumnHeader();
             columnHeader4 = new ColumnHeader();
+            columnHeader5 = new ColumnHeader();
             SuspendLayout();
             // 
             // txtSearch
@@ -77,7 +78,7 @@
             // lvProducts
             // 
             lvProducts.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            lvProducts.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4 });
+            lvProducts.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5 });
             lvProducts.FullRowSelect = true;
             lvProducts.GridLines = true;
             lvProducts.Location = new Point(12, 79);
@@ -97,7 +98,7 @@
             // 
             columnHeader2.Text = "Qty. Per Unit";
             columnHeader2.TextAlign = HorizontalAlignment.Right;
-            columnHeader2.Width = 120;
+            columnHeader2.Width = 200;
             // 
             // columnHeader3
             // 
@@ -109,6 +110,11 @@
             // 
             columnHeader4.Text = "Category";
             columnHeader4.Width = 300;
+            // 
+            // columnHeader5
+            // 
+            columnHeader5.Text = "Stock Unit";
+            columnHeader5.Width = 120;
             // 
             // ProductListForm
             // 
@@ -137,5 +143,6 @@
         private ColumnHeader columnHeader2;
         private ColumnHeader columnHeader3;
         private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
     }
 }
