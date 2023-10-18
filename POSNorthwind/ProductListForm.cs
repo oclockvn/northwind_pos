@@ -29,19 +29,18 @@ namespace POSNorthwind
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            LoadProductList();    
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-
+            txtSearch.Clear();
+            LoadProductList();
         }
 
         private void ProductListForm_Load(object sender, EventArgs e)
         {
-            var products = productService.GetProductList();
-            // Render list view
-            RenderProductListView(products);
+            LoadProductList();
         }
 
         private void RenderProductListView(List<Product> products)
@@ -71,6 +70,11 @@ namespace POSNorthwind
             detailForm.CurrentProduct = product;
 
             detailForm.ShowDialog();
+        }
+
+        private void LoadProductList()
+        {
+            RenderProductListView(productService.GetProductList(txtSearch.Text.Trim()));
         }
     }
 }

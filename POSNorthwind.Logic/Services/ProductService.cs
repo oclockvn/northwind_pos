@@ -1,17 +1,12 @@
 ﻿using Dapper;
 using Microsoft.Data.SqlClient;
 using POSNorthwind.Logic.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace POSNorthwind.Logic.Services
 {
     public class ProductService
     {
-        public List<Product> GetProductList()
+        public List<Product> GetProductList(string search = null)
         {
             var sql = """
                 select ProductID as Id, p.ProductName, p.CategoryID, p.QuantityPerUnit, p.UnitPrice, p.UnitsInStock, c.CategoryName from products as p
@@ -21,7 +16,13 @@ namespace POSNorthwind.Logic.Services
             var connectionString = "Server=localhost;Database=northwind;User Id=sa; Password=A@ssm!n@1234;MultipleActiveResultSets=true;TrustServerCertificate=True";
             SqlConnection connection = new(connectionString);
 
-            var products = connection.Query<Product>(sql).ToList();
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                sql += " where p.ProductName like @keyword";
+            }
+
+            var parameter = new { keyword = string.IsNullOrWhiteSpace(search) ? "" : $"%{search}%" };
+            var products = connection.Query<Product>(sql, parameter).ToList();
             return products;
         }
     }
