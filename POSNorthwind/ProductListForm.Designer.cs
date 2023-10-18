@@ -91,7 +91,7 @@
             lvProducts.TabIndex = 4;
             lvProducts.UseCompatibleStateImageBehavior = false;
             lvProducts.View = View.Details;
-            lvProducts.ColumnClick += lvProducts_ColumnClick;
+            lvProducts.DoubleClick += lvProducts_DoubleClick;
             // 
             // columnHeader1
             // 

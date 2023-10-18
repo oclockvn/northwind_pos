@@ -44,11 +44,6 @@ namespace POSNorthwind
             RenderProductListView(products);
         }
 
-        private void lvProducts_ColumnClick(object sender, ColumnClickEventArgs e)
-        {
-
-        }
-
         private void RenderProductListView(List<Product> products)
         {
             // clear old items
@@ -64,6 +59,17 @@ namespace POSNorthwind
 
                 lvProducts.Items.Add(item);
             }
+        }
+
+        private void lvProducts_DoubleClick(object sender, EventArgs e)
+        {
+            var lvi = lvProducts.SelectedItems[0];
+            var product = (Product)lvi.Tag;
+
+            ProductDetailForm detailForm = new();
+            detailForm.CurrentProduct = product;
+
+            detailForm.ShowDialog();
         }
     }
 }

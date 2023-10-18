@@ -1,4 +1,5 @@
-﻿using System;
+﻿using POSNorthwind.Logic.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,6 +13,8 @@ namespace POSNorthwind
 {
     public partial class ProductDetailForm : Form
     {
+        public Product CurrentProduct { get; set; }
+
         public ProductDetailForm()
         {
             InitializeComponent();
@@ -29,7 +32,20 @@ namespace POSNorthwind
 
         private void ProductDetailForm_Load(object sender, EventArgs e)
         {
+            if (CurrentProduct != null)
+            {
+                BindProductData(CurrentProduct);
+            }
+        }
 
+        private void BindProductData(Product product)
+        {
+            txtProductName.Text = product.ProductName;
+            txtQtyPerUnit.Text = product.QuantityPerUnit;
+            txtUnitPrice.Text = product.UnitPrice.ToString();
+            txtStockUnit.Text = product.UnitsInStock.ToString();
+
+            // todo: show combobox
         }
     }
 }

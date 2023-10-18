@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtProductName = new TextBox();
             label2 = new Label();
-            textBox3 = new TextBox();
+            txtQtyPerUnit = new TextBox();
             label3 = new Label();
-            textBox4 = new TextBox();
+            txtStockUnit = new TextBox();
             label4 = new Label();
-            textBox5 = new TextBox();
+            txtUnitPrice = new TextBox();
             label5 = new Label();
-            comboBox1 = new ComboBox();
+            cbCategory = new ComboBox();
             btnSave = new Button();
             btnCancel = new Button();
             SuspendLayout();
@@ -51,13 +51,13 @@
             label1.TabIndex = 0;
             label1.Text = "Product name";
             // 
-            // textBox1
+            // txtProductName
             // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Location = new Point(12, 37);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(660, 31);
-            textBox1.TabIndex = 1;
+            txtProductName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtProductName.Location = new Point(12, 37);
+            txtProductName.Name = "txtProductName";
+            txtProductName.Size = new Size(660, 31);
+            txtProductName.TabIndex = 1;
             // 
             // label2
             // 
@@ -68,12 +68,12 @@
             label2.TabIndex = 2;
             label2.Text = "Category";
             // 
-            // textBox3
+            // txtQtyPerUnit
             // 
-            textBox3.Location = new Point(12, 407);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(375, 31);
-            textBox3.TabIndex = 5;
+            txtQtyPerUnit.Location = new Point(12, 407);
+            txtQtyPerUnit.Name = "txtQtyPerUnit";
+            txtQtyPerUnit.Size = new Size(375, 31);
+            txtQtyPerUnit.TabIndex = 5;
             // 
             // label3
             // 
@@ -84,12 +84,12 @@
             label3.TabIndex = 4;
             label3.Text = "Quantity per unit";
             // 
-            // textBox4
+            // txtStockUnit
             // 
-            textBox4.Location = new Point(12, 317);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(196, 31);
-            textBox4.TabIndex = 7;
+            txtStockUnit.Location = new Point(12, 317);
+            txtStockUnit.Name = "txtStockUnit";
+            txtStockUnit.Size = new Size(196, 31);
+            txtStockUnit.TabIndex = 7;
             // 
             // label4
             // 
@@ -100,12 +100,12 @@
             label4.TabIndex = 6;
             label4.Text = "Stock unit";
             // 
-            // textBox5
+            // txtUnitPrice
             // 
-            textBox5.Location = new Point(12, 217);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(196, 31);
-            textBox5.TabIndex = 9;
+            txtUnitPrice.Location = new Point(12, 217);
+            txtUnitPrice.Name = "txtUnitPrice";
+            txtUnitPrice.Size = new Size(196, 31);
+            txtUnitPrice.TabIndex = 9;
             // 
             // label5
             // 
@@ -116,13 +116,13 @@
             label5.TabIndex = 8;
             label5.Text = "Unit price";
             // 
-            // comboBox1
+            // cbCategory
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(12, 125);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(375, 33);
-            comboBox1.TabIndex = 10;
+            cbCategory.FormattingEnabled = true;
+            cbCategory.Location = new Point(12, 125);
+            cbCategory.Name = "cbCategory";
+            cbCategory.Size = new Size(375, 33);
+            cbCategory.TabIndex = 10;
             // 
             // btnSave
             // 
@@ -154,15 +154,15 @@
             ControlBox = false;
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
-            Controls.Add(comboBox1);
-            Controls.Add(textBox5);
+            Controls.Add(cbCategory);
+            Controls.Add(txtUnitPrice);
             Controls.Add(label5);
-            Controls.Add(textBox4);
+            Controls.Add(txtStockUnit);
             Controls.Add(label4);
-            Controls.Add(textBox3);
+            Controls.Add(txtQtyPerUnit);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(textBox1);
+            Controls.Add(txtProductName);
             Controls.Add(label1);
             Name = "ProductDetailForm";
             StartPosition = FormStartPosition.CenterParent;
@@ -175,15 +175,15 @@
         #endregion
 
         private Label label1;
-        private TextBox textBox1;
+        private TextBox txtProductName;
         private Label label2;
-        private TextBox textBox3;
+        private TextBox txtQtyPerUnit;
         private Label label3;
-        private TextBox textBox4;
+        private TextBox txtStockUnit;
         private Label label4;
-        private TextBox textBox5;
+        private TextBox txtUnitPrice;
         private Label label5;
-        private ComboBox comboBox1;
+        private ComboBox cbCategory;
         private Button btnSave;
         private Button btnCancel;
     }
