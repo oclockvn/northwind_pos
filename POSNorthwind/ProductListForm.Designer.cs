@@ -55,6 +55,7 @@
             btnSearch.TabIndex = 1;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // btnClear
             // 
@@ -64,6 +65,7 @@
             btnClear.TabIndex = 2;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // btnAdd
             // 
@@ -74,6 +76,7 @@
             btnAdd.TabIndex = 3;
             btnAdd.Text = "Add Product";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // lvProducts
             // 
@@ -88,6 +91,7 @@
             lvProducts.TabIndex = 4;
             lvProducts.UseCompatibleStateImageBehavior = false;
             lvProducts.View = View.Details;
+            lvProducts.ColumnClick += lvProducts_ColumnClick;
             // 
             // columnHeader1
             // 
@@ -127,7 +131,9 @@
             Controls.Add(btnSearch);
             Controls.Add(txtSearch);
             Name = "ProductListForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "POS";
+            Load += ProductListForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

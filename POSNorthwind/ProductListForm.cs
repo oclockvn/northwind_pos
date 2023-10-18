@@ -16,5 +16,31 @@ namespace POSNorthwind
         {
             InitializeComponent();
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            ProductDetailForm detailForm = new();
+            detailForm.ShowDialog();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ProductListForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lvProducts_ColumnClick(object sender, ColumnClickEventArgs e)
+        {
+
+        }
     }
 }

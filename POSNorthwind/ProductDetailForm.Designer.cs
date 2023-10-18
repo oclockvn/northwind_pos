@@ -133,6 +133,7 @@
             btnSave.TabIndex = 11;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
@@ -143,6 +144,7 @@
             btnCancel.TabIndex = 12;
             btnCancel.Text = "Cancel";
             btnCancel.UseVisualStyleBackColor = true;
+            btnCancel.Click += btnCancel_Click;
             // 
             // ProductDetailForm
             // 
@@ -163,7 +165,9 @@
             Controls.Add(textBox1);
             Controls.Add(label1);
             Name = "ProductDetailForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Product Info";
+            Load += ProductDetailForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
