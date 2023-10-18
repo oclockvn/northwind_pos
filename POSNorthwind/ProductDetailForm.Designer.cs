@@ -166,7 +166,7 @@
             Controls.Add(label1);
             Name = "ProductDetailForm";
             StartPosition = FormStartPosition.CenterParent;
-            Text = "Product Info";
+            Text = "New Product";
             Load += ProductDetailForm_Load;
             ResumeLayout(false);
             PerformLayout();

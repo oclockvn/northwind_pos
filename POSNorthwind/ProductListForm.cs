@@ -67,6 +67,7 @@ namespace POSNorthwind
             var product = (Product)lvi.Tag;
 
             ProductDetailForm detailForm = new();
+            detailForm.Text = "Product: " + product.ProductName;
             detailForm.CurrentProduct = product;
 
             detailForm.ShowDialog();
