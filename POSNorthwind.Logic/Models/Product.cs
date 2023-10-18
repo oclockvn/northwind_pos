@@ -9,7 +9,7 @@ public class Product
     public string CategoryName { get; set; } = null!;
     public string QuantityPerUnit { get; set; } = null!;
     public double UnitPrice { get; set; }
-    //public int UnitsInStock { get; set; }
+    public int UnitsInStock { get; set; }
     //public int UnitsOnOrder { get; set; }
     //public string ReorderLevel { get; set; }
     //public string Discontinued { get; set; }
