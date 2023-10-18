@@ -1,4 +1,5 @@
 ﻿using POSNorthwind.Logic.Models;
+using POSNorthwind.Logic.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace POSNorthwind
     public partial class ProductDetailForm : Form
     {
         public Product CurrentProduct { get; set; }
+        private CategoryService categoryService = new();
 
         public ProductDetailForm()
         {
@@ -32,6 +34,8 @@ namespace POSNorthwind
 
         private void ProductDetailForm_Load(object sender, EventArgs e)
         {
+            LoadCategoryList();
+
             if (CurrentProduct != null)
             {
                 BindProductData(CurrentProduct);
@@ -45,7 +49,16 @@ namespace POSNorthwind
             txtUnitPrice.Text = product.UnitPrice.ToString();
             txtStockUnit.Text = product.UnitsInStock.ToString();
 
-            // todo: show combobox
+            // show combobox
+            cbCategory.SelectedValue = product.CategoryID;
+        }
+
+        private void LoadCategoryList()
+        {
+            var categories = categoryService.GetCategoryList();
+            cbCategory.DataSource = categories;
+            cbCategory.DisplayMember = "CategoryName";
+            cbCategory.ValueMember = "Id";
         }
     }
 }
