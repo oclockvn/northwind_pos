@@ -15,7 +15,9 @@ namespace POSNorthwind
     public partial class ProductDetailForm : Form
     {
         public Product CurrentProduct { get; set; }
+
         private CategoryService categoryService = new();
+        private ProductService productService = new();
 
         public ProductDetailForm()
         {
@@ -29,7 +31,18 @@ namespace POSNorthwind
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            Product current = new()
+            {
+                ProductName = txtProductName.Text.Trim(),
+                CategoryID = (int)cbCategory.SelectedValue,
+                QuantityPerUnit = txtQtyPerUnit.Text.Trim(),
+                UnitPrice = decimal.Parse(txtUnitPrice.Text.Trim()),
+                UnitsInStock = int.Parse(txtUnitPrice.Text),
+            };
 
+            productService.AddProduct(current);
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void ProductDetailForm_Load(object sender, EventArgs e)

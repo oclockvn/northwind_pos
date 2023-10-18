@@ -24,12 +24,16 @@ namespace POSNorthwind
         private void btnAdd_Click(object sender, EventArgs e)
         {
             ProductDetailForm detailForm = new();
-            detailForm.ShowDialog();
+            var result = detailForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                LoadProductList();
+            }
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            LoadProductList();    
+            LoadProductList();
         }
 
         private void btnClear_Click(object sender, EventArgs e)

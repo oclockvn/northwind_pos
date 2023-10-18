@@ -8,7 +8,7 @@ public class Product
     public int? CategoryID { get; set; }
     public string CategoryName { get; set; } = null!;
     public string QuantityPerUnit { get; set; } = null!;
-    public double UnitPrice { get; set; }
+    public decimal UnitPrice { get; set; }
     public int UnitsInStock { get; set; }
     //public int UnitsOnOrder { get; set; }
     //public string ReorderLevel { get; set; }

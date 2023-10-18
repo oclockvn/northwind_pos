@@ -25,5 +25,27 @@ namespace POSNorthwind.Logic.Services
             var products = connection.Query<Product>(sql, parameter).ToList();
             return products;
         }
+
+        public void AddProduct(Product product)
+        {
+            var sql = """
+                insert into products ([ProductName], [CategoryId], [QuantityPerUnit], [UnitPrice], [UnitsInStock], [ReorderLevel], [Discontinued])
+                values (@productName, @categoryId, @quantityPerUnit, @unitPrice, @unitsInStock, 0, 0)
+                """;
+
+            var parameter = new
+            {
+                productName = product.ProductName,
+                categoryId = product.CategoryID,
+                quantityPerUnit = product.QuantityPerUnit,
+                unitPrice = product.UnitPrice,
+                unitsInStock = product.UnitsInStock,
+            };
+
+            var connectionString = "Server=localhost;Database=northwind;User Id=sa; Password=A@ssm!n@1234;MultipleActiveResultSets=true;TrustServerCertificate=True";
+            SqlConnection connection = new(connectionString);
+
+            connection.Execute(sql, parameter);
+        }
     }
 }
