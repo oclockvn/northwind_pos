@@ -34,6 +34,7 @@ namespace POSNorthwind
         {
             Product current = new()
             {
+                Id = CurrentProduct?.Id ?? 0,
                 ProductName = txtProductName.Text.Trim(),
                 CategoryID = cbCategory.SelectedValue == null ? null : (int)cbCategory.SelectedValue,
                 QuantityPerUnit = txtQtyPerUnit.Text.Trim(),
@@ -49,7 +50,16 @@ namespace POSNorthwind
 
             lblError.Text = "";
 
-            productService.AddProduct(current);
+            var isUpdate = CurrentProduct != null && CurrentProduct.Id > 0;
+            if (isUpdate)
+            {
+                productService.UpdateProduct(current);
+            }
+            else
+            {
+                productService.AddProduct(current);
+            }
+
             DialogResult = DialogResult.OK;
             Close();
         }
@@ -61,6 +71,11 @@ namespace POSNorthwind
             if (CurrentProduct != null)
             {
                 BindProductData(CurrentProduct);
+                button1.Visible = false;
+            }
+            else
+            {
+                btnSave.Visible = false;
             }
         }
 
@@ -81,6 +96,31 @@ namespace POSNorthwind
             cbCategory.DataSource = categories;
             cbCategory.DisplayMember = "CategoryName";
             cbCategory.ValueMember = "Id";
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Product current = new()
+            {
+                Id = 0,// CurrentProduct?.Id ?? 0,
+                ProductName = txtProductName.Text.Trim(),
+                CategoryID = cbCategory.SelectedValue == null ? null : (int)cbCategory.SelectedValue,
+                QuantityPerUnit = txtQtyPerUnit.Text.Trim(),
+                UnitPrice = string.IsNullOrWhiteSpace(txtUnitPrice.Text.Trim()) ? 0 : decimal.Parse(txtUnitPrice.Text.Trim()),
+                UnitsInStock = string.IsNullOrWhiteSpace(txtStockUnit.Text.Trim()) ? 0 : int.Parse(txtStockUnit.Text.Trim()),
+            };
+
+            if (string.IsNullOrWhiteSpace(current.ProductName))
+            {
+                lblError.Text = "Product name is required";
+                return;
+            }
+
+            lblError.Text = "";
+
+            productService.AddProduct(current);
+            DialogResult = DialogResult.OK;
+            Close();
         }
     }
 }

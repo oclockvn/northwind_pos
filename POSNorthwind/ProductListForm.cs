@@ -1,14 +1,5 @@
 ﻿using POSNorthwind.Logic.Models;
 using POSNorthwind.Logic.Services;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace POSNorthwind
 {
@@ -73,7 +64,11 @@ namespace POSNorthwind
             detailForm.Text = "Product: " + product.ProductName;
             detailForm.CurrentProduct = product;
 
-            detailForm.ShowDialog();
+            var result = detailForm.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                LoadProductList();
+            }
         }
 
         private void LoadProductList()

@@ -52,4 +52,26 @@ public class ProductService
 
         connection.Execute(sql, parameter);
     }
+
+    public void UpdateProduct(Product p)
+    {
+        var sql = """
+            update products 
+            set productname=@productname, QuantityPerUnit=@quantityPerUnit, UnitPrice=@unitPrice, UnitsInStock=@unitsInStock, categoryID=@categoryID
+            where [ProductId] = @id
+            """;
+
+        var parameter = new
+        {
+            id = p.Id,
+            productname = p.ProductName,
+            quantityPerUnit = p.QuantityPerUnit,
+            unitPrice = p.UnitPrice,
+            unitsInStock = p.UnitsInStock,
+            categoryID = p.CategoryID
+        };
+
+        SqlConnection connection = new(connectionString);
+        connection.Execute(sql, parameter);
+    }
 }

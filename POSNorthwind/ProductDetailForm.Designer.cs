@@ -41,6 +41,7 @@
             btnSave = new Button();
             btnCancel = new Button();
             lblError = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -132,14 +133,14 @@
             btnSave.Name = "btnSave";
             btnSave.Size = new Size(112, 34);
             btnSave.TabIndex = 11;
-            btnSave.Text = "Save";
+            btnSave.Text = "Update";
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
             // btnCancel
             // 
             btnCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btnCancel.Location = new Point(456, 473);
+            btnCancel.Location = new Point(338, 473);
             btnCancel.Name = "btnCancel";
             btnCancel.Size = new Size(112, 34);
             btnCancel.TabIndex = 12;
@@ -157,12 +158,23 @@
             lblError.TabIndex = 13;
             lblError.Text = "Error";
             // 
+            // button1
+            // 
+            button1.Location = new Point(456, 473);
+            button1.Name = "button1";
+            button1.Size = new Size(112, 34);
+            button1.TabIndex = 14;
+            button1.Text = "Add";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // ProductDetailForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(698, 519);
             ControlBox = false;
+            Controls.Add(button1);
             Controls.Add(lblError);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
@@ -199,5 +211,6 @@
         private Button btnSave;
         private Button btnCancel;
         private Label lblError;
+        private Button button1;
     }
 }
