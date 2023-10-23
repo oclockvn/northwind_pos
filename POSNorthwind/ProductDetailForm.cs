@@ -22,6 +22,7 @@ namespace POSNorthwind
         public ProductDetailForm()
         {
             InitializeComponent();
+            lblError.ResetText();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -34,11 +35,19 @@ namespace POSNorthwind
             Product current = new()
             {
                 ProductName = txtProductName.Text.Trim(),
-                CategoryID = (int)cbCategory.SelectedValue,
+                CategoryID = cbCategory.SelectedValue == null ? null : (int)cbCategory.SelectedValue,
                 QuantityPerUnit = txtQtyPerUnit.Text.Trim(),
-                UnitPrice = decimal.Parse(txtUnitPrice.Text.Trim()),
-                UnitsInStock = int.Parse(txtUnitPrice.Text),
+                UnitPrice = string.IsNullOrWhiteSpace(txtUnitPrice.Text.Trim()) ? 0 : decimal.Parse(txtUnitPrice.Text.Trim()),
+                UnitsInStock = string.IsNullOrWhiteSpace(txtStockUnit.Text.Trim()) ? 0 : int.Parse(txtStockUnit.Text.Trim()),
             };
+
+            if (string.IsNullOrWhiteSpace(current.ProductName))
+            {
+                lblError.Text = "Product name is required";
+                return;
+            }
+
+            lblError.Text = "";
 
             productService.AddProduct(current);
             DialogResult = DialogResult.OK;

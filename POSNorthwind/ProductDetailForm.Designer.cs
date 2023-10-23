@@ -40,6 +40,7 @@
             cbCategory = new ComboBox();
             btnSave = new Button();
             btnCancel = new Button();
+            lblError = new Label();
             SuspendLayout();
             // 
             // label1
@@ -146,12 +147,23 @@
             btnCancel.UseVisualStyleBackColor = true;
             btnCancel.Click += btnCancel_Click;
             // 
+            // lblError
+            // 
+            lblError.AutoSize = true;
+            lblError.ForeColor = Color.Red;
+            lblError.Location = new Point(12, 478);
+            lblError.Name = "lblError";
+            lblError.Size = new Size(50, 25);
+            lblError.TabIndex = 13;
+            lblError.Text = "Error";
+            // 
             // ProductDetailForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(698, 519);
             ControlBox = false;
+            Controls.Add(lblError);
             Controls.Add(btnCancel);
             Controls.Add(btnSave);
             Controls.Add(cbCategory);
@@ -186,5 +198,6 @@
         private ComboBox cbCategory;
         private Button btnSave;
         private Button btnCancel;
+        private Label lblError;
     }
 }
